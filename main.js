@@ -11,6 +11,17 @@ function main(text)
 	return;
 }
 
+function search(kanzi)
+{
+	var a = [];
+	for(var i=0; i<zihom.length; i++) {
+		if(zihom[i][1].indexOf(kanzi)+1) {
+			a.push(zihom[i][0]);
+		}
+	}
+	return a;
+}
+
 function xenkwanki_segseg(hanzis)
 {
 	var res = '<div class="outer">';
@@ -21,7 +32,7 @@ function xenkwanki_segseg(hanzis)
 			res += '<div class="b">' + k +'</div>';
 			res += '<div>';
 			var id = 'u' + (Math.random() + "").slice(2);
-			var info = ["seg", "syag"];
+			var info = search(k);
 			if(info.length > 1) {
 				for(var j=0; j<info.length; j++){
 					res += '<input type="radio" name="' + id + '" value="' + info[j] + '">' + info[j] + '<br>';
