@@ -29,16 +29,15 @@ function xenkwanki_segseg(hanzis)
 	for(var i=0; i<hanzis.length; i++) {
 		var k = hanzis[i];
 		res += '<div class="box">';
-			res += '<div class="b">' + k +'</div>';
-			res += '<div>';
 			var id = 'u' + (Math.random() + "").slice(2);
+			res += '<div class="b"><ruby><rb>' + k + '</rb><rt id="'+ id + '"></rt></ruby>'  +'</div>';
+			res += '<div>';
 			var info = search(k);
-			if(info.length > 1) {
+			if(info.length >= 1) {
 				for(var j=0; j<info.length; j++){
-					res += '<input type="radio" name="' + id + '" value="' + info[j] + '">' + info[j] + '<br>';
+					res += '<input type="radio" name="' + id + '" value="' + info[j] + 
+					'" onclick="ev(\''+ id + '\', \'' + info[j] + '\')">' + info[j] + '<br>';
 				}
-			} else if(info.length == 1) {
-				res += '<input type="radio" name="' + id + '" value="' + info[0] + '" checked="checked">' + info[0] + '<br>';
 			} else {
 				res += '(´・ω・`)<br>'
 			}
@@ -63,5 +62,10 @@ function textToArr(text)
 }
 
 
+function ev(id, zihom)
+{
+	var dom = document.getElementById(id);
+	dom.innerHTML = zihom_to_gendaikana(zihom);
+}
 
 
