@@ -33,8 +33,8 @@ function xenkwanki_segseg(hanzis)
 			var info = search(k);
 			if(info.length >= 1) {
 				for(var j=0; j<info.length; j++){
-					res += '<input type="radio" name="' + id + '" value="' + info[j] + 
-					'" onclick="ev(\''+ id + '\', \'' + info[j] + '\')">' + info[j] + '<br>';
+					res += '<label><input type="radio" name="' + id + '" value="' + info[j] + 
+					'" onclick="ev(\''+ id + '\', \'' + info[j] + '\')">' + info[j] + '</label><br>';
 				}
 			} else {
 				res += '(´・ω・`)<br>'
