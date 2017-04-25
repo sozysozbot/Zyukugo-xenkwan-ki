@@ -1,5 +1,3 @@
-console.log(zihom.length)
-
 function main(text)
 {
 	var arr = textToArr(text);
