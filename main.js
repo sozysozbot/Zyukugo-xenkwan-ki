@@ -20,6 +20,11 @@ function search(kanzi)
 	return a;
 }
 
+function get_id()
+{
+	return (Math.random() + "").slice(2);
+}
+
 function xenkwanki_segseg(hanzis)
 {
 	var res = '<div class="outer">';
@@ -27,14 +32,15 @@ function xenkwanki_segseg(hanzis)
 	for(var i=0; i<hanzis.length; i++) {
 		var k = hanzis[i];
 		res += '<div class="box">';
-			var id = 'u' + (Math.random() + "").slice(2);
+			var id = 'u' + get_id();
 			res += '<div class="b"><ruby><rb>' + k + '</rb><rt id="'+ id + '"></rt></ruby>'  +'</div>';
 			res += '<div>';
 			var info = search(k);
 			if(info.length >= 1) {
 				for(var j=0; j<info.length; j++){
-					res += '<input type="radio" name="' + id + '" value="' + info[j] + 
-					'" onclick="ev(\''+ id + '\', \'' + info[j] + '\')">' + info[j] + '<br>';
+					var button_id = 'b' + get_id();
+					res += '<input type="radio" id="'+ button_id + '" name="' + id + '" value="' + info[j] + 
+					'" onclick="ev(\''+ id + '\', \'' + info[j] + '\')"><label for="' + button_id + '">' + info[j] + '</label><br>';
 				}
 			} else {
 				res += '(´・ω・`)<br>'
