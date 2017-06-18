@@ -27,7 +27,7 @@ function xenkwanki_segseg(num,hanzis)
 	for(var i=0; i<hanzis.length; i++) {
 		var k = hanzis[i];
 		res += '<div class="box">';
-			var id = 'u' + (Math.random() + "").slice(2);
+			var id = 'box_' + num + '_' + i;
 			res += '<div class="b"><ruby><rb>' + k + '</rb><rt id="'+ id + '"></rt></ruby>'  +'</div>';
 			res += '<div>';
 			var info = search(k);
