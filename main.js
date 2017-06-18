@@ -1,8 +1,12 @@
+var GLOBAL_INFO = {};
+
 function main(text)
 {
 	var arr = textToArr(text);
 
 	document.getElementById("res").innerHTML = "";
+	GLOBAL_INFO = {};
+
 	for(var i=0; i<arr.length; i++) {
 		document.getElementById("res").innerHTML += xenkwanki_segseg(i,arr[i]);
 	}
@@ -42,6 +46,7 @@ function xenkwanki_segseg(num,hanzis)
 			res += '</div>';
 		res += '</div>'
 	}
+	GLOBAL_INFO['box_'+num+'_length'] = hanzis.length;
 
 	res += '</div>';
 	return res;
@@ -64,6 +69,7 @@ function ev(id, zihom)
 {
 	var dom = document.getElementById(id);
 	dom.innerHTML = zihom_to_gendaikana(zihom);
+	GLOBAL_INFO[id] = zihom;
 }
 
 
