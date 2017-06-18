@@ -4,7 +4,7 @@ function main(text)
 
 	document.getElementById("res").innerHTML = "";
 	for(var i=0; i<arr.length; i++) {
-		document.getElementById("res").innerHTML += xenkwanki_segseg(arr[i]);
+		document.getElementById("res").innerHTML += xenkwanki_segseg(i,arr[i]);
 	}
 	return;
 }
@@ -20,9 +20,9 @@ function search(kanzi)
 	return a;
 }
 
-function xenkwanki_segseg(hanzis)
+function xenkwanki_segseg(num,hanzis)
 {
-	var res = '<div class="outer">';
+	var res = '<div class="outer" id="outer_'+num+'">';
 				
 	for(var i=0; i<hanzis.length; i++) {
 		var k = hanzis[i];
