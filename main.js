@@ -12,6 +12,8 @@ function main(text)
 	for(var i=0; i<arr.length; i++) {
 		document.getElementById("res").innerHTML += xenkwanki_segseg(i,arr[i]);
 	}
+	GLOBAL_INFO.box_length = arr.length;
+	GLOBAL_INFO.orig_strs = arr;
 	return;
 }
 
@@ -72,6 +74,13 @@ function ev(id, zihom)
 	var dom = document.getElementById(id);
 	dom.innerHTML = zihom_to_gendaikana(zihom);
 	GLOBAL_INFO[id] = zihom;
+
+	var str = generate_str();
+	if(str){
+		createShareButton(str);
+	} else {
+		removeShareButton();
+	}
 }
 
 function createShareButton(text){twttr.widgets.createShareButton(
@@ -83,4 +92,23 @@ function createShareButton(text){twttr.widgets.createShareButton(
 );}
 
 function removeShareButton(){document.getElementById('container').innerHTML=""}
+
+function generate_str(){
+	var res = "";
+	for(var i=0; i<GLOBAL_INFO.box_length;i++){
+		res += GLOBAL_INFO.orig_strs[i] + " "
+		for(var j=0;j<GLOBAL_INFO["box_"+i+"_length"];j++){
+			if(! GLOBAL_INFO["box_"+i+"_"+j]){
+				return null;
+			} else {
+				res += GLOBAL_INFO["box_"+i+"_"+j];
+			}
+		}
+		res += "\n"
+	}
+	return (res + "#segsyoxafu #temsaku\n");
+}
+
+
+
 
