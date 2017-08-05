@@ -83,7 +83,9 @@ function ev(id, zihom)
 	}
 }
 
-function createShareButton(text){twttr.widgets.createShareButton(
+function createShareButton(text){
+	document.getElementById('container').innerHTML = "";
+	twttr.widgets.createShareButton(
   'https://sozysozbot.github.io/Zyukugo-xenkwan-ki/index.html',
   document.getElementById('container'),
   {
