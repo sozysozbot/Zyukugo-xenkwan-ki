@@ -75,6 +75,11 @@ function ev(id, zihom)
 	dom.innerHTML = zihom_to_gendaikana(zihom);
 	GLOBAL_INFO[id] = zihom;
 
+	kagsin();
+}
+
+function kagsin()
+{
 	var str = generate_str();
 	if(str){
 		createShareButton(str);
@@ -108,7 +113,12 @@ function generate_str(){
 		}
 		res += "\n"
 	}
-	return (res + "#segsyoxafu #temsaku\n");
+	var ret = res 
+		+ "#segsyoxafu " 
+		+ (document.getElementById("temsaku_xuheu").checked ? "" : "#temsaku") 
+		+ "\n";
+
+	return ret;
 }
 
 
