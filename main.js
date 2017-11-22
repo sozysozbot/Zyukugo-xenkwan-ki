@@ -31,18 +31,22 @@ function search(kanzi)
 function xenkwanki_segseg(num,hanzis)
 {
 	var res = '<div class="outer" id="outer_'+num+'">';
-				
+	
 	for(var i=0; i<hanzis.length; i++) {
 		var k = hanzis[i];
 		res += '<div class="box">';
 			var index = num + '_' + i;
-			res += '<div class="b"><ruby><rb>' + k + '</rb><rt id="box_' + index + '"></rt></ruby>'  +'</div>';
-			res += '<div>';
 			var info = search(k);
+			
+			if(info.length == 1)
+				res += '<div class="b"><ruby><rb>' + k + '</rb><rt id="box_' + index + '">' + zihom_to_gendaikana(info[0]) + '</rt></ruby>'  +'</div>';
+			else res += '<div class="b"><ruby><rb>' + k + '</rb><rt id="box_' + index + '"></rt></ruby>'  +'</div>';
+			res += '<div>';
 			if(info.length >= 1) {
 				for(var j=0; j<info.length; j++){
-					res += '<label><input type="radio" name="radio_' + index + '" value="' + info[j] + 
-					'" onclick="ev(\'box_' + index + '\', \'' + info[j] + '\')">' + info[j] + '</label><br>';
+					if(info.length == 1) {
+						res += '<label><input type="radio" name="radio_' + index + '" value="' + info[j] + '" checked>' + info[j] + '</label><br>';
+					} else res += '<label><input type="radio" name="radio_' + index + '" value="' + info[j] + '" onclick="ev(\'box_' + index + '\', \'' + info[j] + '\')">' + info[j] + '</label><br>';
 				}
 			} else {
 				res += '(´・ω・`)<br>'
@@ -51,7 +55,7 @@ function xenkwanki_segseg(num,hanzis)
 		res += '</div>'
 	}
 	GLOBAL_INFO['box_'+num+'_length'] = hanzis.length;
-
+	
 	res += '</div>';
 	return res;
 }
