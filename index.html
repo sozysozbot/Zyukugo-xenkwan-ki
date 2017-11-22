@@ -19,7 +19,7 @@
 rt {height: 18px;}
 </style>
 </head>
-<body lang="ja">
+<body lang="ja" onload="main(document.getElementById('dat').value);">
 <a href="https://github.com/sozysozbot/Zyukugo-xenkwan-ki">View on Github</a>
 <h2>熟語変換器 ver 0.0.3</h2>
 <pre>
@@ -29,13 +29,12 @@ rt {height: 18px;}
 <div id="container"></div>
 <div>
 <form onsubmit="main(document.getElementById('dat').value); return false;">
-<input type="text" id="dat" value="正書法 熟語変換器" style="font-size: 150%" onKeyDown="main(document.getElementById('dat').value)"/>
+<input type="text" id="dat" value="正書法 熟語変換器" style="font-size: 150%" onkeydown="main(document.getElementById('dat').value)"/>
 <input type="button" value="Xenkwan" style="font-size: 150%" onclick="main(document.getElementById('dat').value)">
 </form>
 </div>
 <div id="res">
 
 </div>
-<script>main(document.getElementById('dat').value);</script>
 </body>	
 </html>
