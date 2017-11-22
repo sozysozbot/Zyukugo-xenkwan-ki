@@ -14,6 +14,8 @@ function main(text)
 	}
 	GLOBAL_INFO.box_length = arr.length;
 	GLOBAL_INFO.orig_strs = arr;
+	
+	kagsin();
 	return;
 }
 
@@ -42,11 +44,13 @@ function xenkwanki_segseg(num,hanzis)
 				res += '<div class="b"><ruby><rb>' + k + '</rb><rt id="box_' + index + '">' + zihom_to_gendaikana(info[0]) + '</rt></ruby>'  +'</div>';
 			else res += '<div class="b"><ruby><rb>' + k + '</rb><rt id="box_' + index + '"></rt></ruby>'  +'</div>';
 			res += '<div>';
-			if(info.length >= 1) {
+			
+			if(info.length == 1) {
+				res += '<label><input type="radio" name="radio_' + index + '" value="' + info[0] + '" checked>' + info[0] + '</label><br>';
+				GLOBAL_INFO["box_" + index] = info[0];
+			} else if(info.length > 1) {
 				for(var j=0; j<info.length; j++){
-					if(info.length == 1) {
-						res += '<label><input type="radio" name="radio_' + index + '" value="' + info[j] + '" checked>' + info[j] + '</label><br>';
-					} else res += '<label><input type="radio" name="radio_' + index + '" value="' + info[j] + '" onclick="ev(\'box_' + index + '\', \'' + info[j] + '\')">' + info[j] + '</label><br>';
+					res += '<label><input type="radio" name="radio_' + index + '" value="' + info[j] + '" onclick="ev(\'box_' + index + '\', \'' + info[j] + '\')">' + info[j] + '</label><br>';
 				}
 			} else {
 				res += '(´・ω・`)<br>'
