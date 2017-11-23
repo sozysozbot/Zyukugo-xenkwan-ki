@@ -16,6 +16,7 @@ function main(text)
 	GLOBAL_INFO.orig_strs = arr;
 	
 	kagsin();
+	
 	return;
 }
 
@@ -90,7 +91,11 @@ function kagsin()
 {
 	var str = generate_str();
 	if(str){
-		createShareButton(str);
+		createShareButton(str
+		+ "#segsyoxafu " 
+		+ (document.getElementById("temsaku_xuheu").checked ? "" : "#temsaku") 
+		+ "\n");
+		document.getElementById("res2").innerHTML = str.replace("\n", "<br>");
 	} else {
 		removeShareButton();
 	}
@@ -128,14 +133,5 @@ function generate_str(){
 	
 	if(!enable) return null;
 	
-	var ret = res 
-		+ "#segsyoxafu " 
-		+ (document.getElementById("temsaku_xuheu").checked ? "" : "#temsaku") 
-		+ "\n";
-
-	return ret;
+	return res;
 }
-
-
-
-
