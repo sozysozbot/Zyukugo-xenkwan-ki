@@ -41,16 +41,16 @@ function xenkwanki_segseg(num,hanzis)
 			var info = search(k);
 			
 			if(info.length == 1)
-				res += '<div class="b"><ruby><rb>' + k + '</rb><rt id="box_' + index + '">' + zihom_to_gendaikana(info[0]) + '</rt></ruby>'  +'</div>';
-			else res += '<div class="b"><ruby><rb>' + k + '</rb><rt id="box_' + index + '"></rt></ruby>'  +'</div>';
-			res += '<div>';
+				res += '<div class="kanzi"><ruby><rb>' + k + '</rb><rt id="box_' + index + '">' + zihom_to_gendaikana(info[0]) + '</rt></ruby>'  +'</div>';
+			else res += '<div class="kanzi"><ruby><rb>' + k + '</rb><rt id="box_' + index + '"></rt></ruby>'  +'</div>';
+			res += '<div class="zihomlist">';
 			
 			if(info.length == 1) {
-				res += '<label><input type="radio" name="radio_' + index + '" value="' + info[0] + '" checked>' + info[0] + '</label><br>';
+				res += '<label class="zihom"><input type="radio" name="radio_' + index + '" class="radio" value="' + info[0] + '" checked><span class="zihomtext">' + info[0] + '</span></label>';
 				GLOBAL_INFO["box_" + index] = info[0];
 			} else if(info.length > 1) {
 				for(var j=0; j<info.length; j++){
-					res += '<label><input type="radio" name="radio_' + index + '" value="' + info[j] + '" onclick="ev(\'box_' + index + '\', \'' + info[j] + '\')">' + info[j] + '</label><br>';
+					res += '<label class="zihom"><input type="radio" name="radio_' + index + '" class="radio" value="' + info[j] + '" onclick="ev(\'box_' + index + '\', \'' + info[j] + '\')"><span class="zihomtext">' + info[j] + '</span></label>';
 				}
 			} else {
 				res += '(´・ω・`)<br>'
@@ -97,10 +97,10 @@ function kagsin()
 }
 
 function createShareButton(text){
-	document.getElementById('container').innerHTML = "";
+	document.getElementById('tweet').innerHTML = "";
 	twttr.widgets.createShareButton(
   'https://sozysozbot.github.io/Zyukugo-xenkwan-ki/index.html',
-  document.getElementById('container'),
+  document.getElementById('tweet'),
   {
     text: text
   }

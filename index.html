@@ -6,35 +6,25 @@
 <script src="zihom.js" type="text/javascript"></script>
 <script src="main.js"></script>
 <script src="convert.js"></script>
-<style type="text/css">
-	.box{float:left; padding: 3px; width:70px; }
-	.b{text-align: center; font-size:150%;}
-	.outer {overflow: hidden; padding:10px;}
-	.outer:before,.outer:after {content: ""; display: table;}
- 	#container {height: 30px;}
- 
-.outer:after {
-    clear: both;
-}
-rt {height: 18px;}
-</style>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body lang="ja" onload="main(document.getElementById('dat').value);">
-<a href="https://github.com/sozysozbot/Zyukugo-xenkwan-ki">View on Github</a>
-<h2>熟語変換器 ver 0.0.3</h2>
-<pre>
-熟語を<a href="https://segsyoxafu.wordpress.com/">Segsyoxafu</a>に変換します。字音は手動で選んでください。
-</pre>
-<label onclick="kagsin()"><input type="checkbox" id="temsaku_xuheu" />Twitter上での添削を必要としない</label>
-<div id="container"></div>
+<div class="all">
+<h1>熟語変換器 ver 0.0.3</h1>
+<p>熟語を<a href="https://segsyoxafu.wordpress.com/">Segsyoxafu</a>に変換します。字音は手動で選んでください。</p><hr>
+<div class="xenkwanki">
 <div>
 <form onsubmit="main(document.getElementById('dat').value); return false;">
-<input type="text" id="dat" value="正書法 熟語変換器" style="font-size: 150%" onkeydown="main(document.getElementById('dat').value)"/>
-<input type="button" value="Xenkwan" style="font-size: 150%" onclick="main(document.getElementById('dat').value)">
+<input type="text" id="dat" value="正書法 熟語変換器" style="font-size: 120%" onkeydown="main(document.getElementById('dat').value)"/>
+<input type="button" value="Xenkwan" style="font-size: 120%" onclick="main(document.getElementById('dat').value)">
 </form>
 </div>
 <div id="res">
-
 </div>
-</body>	
+</div>
+<div id="tweet"></div>
+<label onclick="kagsin()"><input type="checkbox" id="temsaku_xuheu" />Twitter上での添削を必要としない</label><br>
+<a href="https://github.com/sozysozbot/Zyukugo-xenkwan-ki">View on Github</a>
+</div>
+</body>
 </html>
