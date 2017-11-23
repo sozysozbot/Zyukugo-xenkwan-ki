@@ -14,7 +14,7 @@ h1 { }
 
 hr { border:none; border-bottom: 1px solid #ccc; }
 
-.xenkwanki { margin-top: 30px; }
+.xenkwanki { margin: 30px; }
 
 .box{ float:left; padding: 3px; width:70px; }
 
@@ -33,5 +33,8 @@ hr { border:none; border-bottom: 1px solid #ccc; }
 .zihomtext {  }
 .zihom .radio + .zihomtext { color: #aaa; }
 .zihom .radio:checked + .zihomtext { color: #19e; }
+
+#res {}
+#res2 { margin-top:20px;  font-size: 120%; }
 
 #tweet { height: 30px;}
