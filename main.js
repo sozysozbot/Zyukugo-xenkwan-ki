@@ -110,6 +110,9 @@ function removeShareButton(){document.getElementById('container').innerHTML=""}
 
 function generate_str(){
 	var res = "";
+	
+	var enable = false;
+	
 	for(var i=0; i<GLOBAL_INFO.box_length;i++){
 		res += GLOBAL_INFO.orig_strs[i] + " "
 		for(var j=0;j<GLOBAL_INFO["box_"+i+"_length"];j++){
@@ -117,10 +120,14 @@ function generate_str(){
 				return null;
 			} else {
 				res += GLOBAL_INFO["box_"+i+"_"+j];
+				enable = true;
 			}
 		}
 		res += "\n"
 	}
+	
+	if(!enable) return null;
+	
 	var ret = res 
 		+ "#segsyoxafu " 
 		+ (document.getElementById("temsaku_xuheu").checked ? "" : "#temsaku") 
