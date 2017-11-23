@@ -69,7 +69,14 @@ hr {
 
 .box{ float:left; padding: 3px; width:70px; }
 
-.outer { overflow: hidden; padding:10px; }
+.outer {
+  overflow: hidden;
+  padding:10px;
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 .outer:before,.outer:after { content: ""; display: table; }
 .outer:after { clear: both; }
 
