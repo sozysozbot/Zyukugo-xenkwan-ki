@@ -2,15 +2,25 @@
 
 var GLOBAL_INFO = {};
 
+
+function $(id) { return document.getElementById(id); }
+
+function ready() {
+	$("form").onsubmit=(function(){main($('dat').value); return false;});
+	$("dat").onkeyup = (function(){main($('dat').value);});
+	$("xenkwan").onclick = (function(){main($('dat').value);});
+	main($('dat').value);
+}
+
 function main(text)
 {
 	var arr = textToArr(text);
 
-	document.getElementById("res").innerHTML = "";
+	$("res").innerHTML = "";
 	GLOBAL_INFO = {};
 
 	for(var i=0; i<arr.length; i++) {
-		document.getElementById("res").innerHTML += xenkwanki_segseg(i,arr[i]);
+		$("res").innerHTML += xenkwanki_segseg(i,arr[i]);
 	}
 	GLOBAL_INFO.box_length = arr.length;
 	GLOBAL_INFO.orig_strs = arr;
@@ -80,8 +90,7 @@ function textToArr(text)
 
 function ev(id, zihom)
 {
-	var dom = document.getElementById(id);
-	dom.innerHTML = zihom_to_gendaikana(zihom);
+	$(id).innerHTML = zihom_to_gendaikana(zihom);
 	GLOBAL_INFO[id] = zihom;
 
 	kagsin();
@@ -93,25 +102,25 @@ function kagsin()
 	if(str){
 		createShareButton(str
 		+ "#segsyoxafu " 
-		+ (document.getElementById("temsaku_xuheu").checked ? "" : "#temsaku") 
+		+ ($("temsaku_xuheu").checked ? "" : "#temsaku") 
 		+ "\n");
-		document.getElementById("res2").innerHTML = str.replace("\n", "<br>");
+		$("res2").innerHTML = str.replace("\n", "<br>");
 	} else {
 		removeShareButton();
 	}
 }
 
 function createShareButton(text){
-	document.getElementById('tweet').innerHTML = "";
+	$('tweet').innerHTML = "";
 	twttr.widgets.createShareButton(
-  'https://sozysozbot.github.io/Zyukugo-xenkwan-ki/index.html',
-  document.getElementById('tweet'),
-  {
-    text: text
-  }
-);}
+	'https://sozysozbot.github.io/Zyukugo-xenkwan-ki/index.html',
+	$('tweet'),
+	{
+		text: text
+	});
+}
 
-function removeShareButton(){document.getElementById('container').innerHTML=""}
+function removeShareButton(){$('tweet').innerHTML=""}
 
 function generate_str(){
 	var res = "";
