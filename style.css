@@ -43,9 +43,14 @@ hr {
 
 #dat {
   font-size: 1.2em;
-  border-radius: 10px;
+  border-radius: 15px;
   padding: 3px 10px;
   border: 2px solid #ccc;
+  outline: none;
+}
+#dat:focus{
+  border: 2px solid #7ce;
+  box-shadow: 0px 1px 2px 0px #7ce;
 }
 
 #xenkwan {
@@ -59,6 +64,8 @@ hr {
 #xenkwan:hover {
   background-color: #7ce
 }
+
+#res { }
 
 .box{ float:left; padding: 3px; width:70px; }
 
@@ -90,7 +97,6 @@ hr {
   border-radius: 8px;
 }
 
-#res {}
 #res2 { margin-top:20px; }
 
 #tweet { height: 30px;}
