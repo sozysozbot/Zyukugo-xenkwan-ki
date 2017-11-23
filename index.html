@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>熟語変換器</title>
-<script src="zihom.js" type="text/javascript"></script>
-<script src="main.js"></script>
-<script src="convert.js"></script>
-<link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="UTF-8">
+  <title>熟語変換器</title>
+  <script src="zihom.js" type="text/javascript"></script>
+  <script src="main.js"></script>
+  <script src="convert.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body lang="ja" onload="main(document.getElementById('dat').value);">
 <div class="all">
-<h1>熟語変換器 ver 0.0.3</h1>
-<p>熟語を<a href="https://segsyoxafu.wordpress.com/">Segsyoxafu</a>に変換します。字音は手動で選んでください。</p><hr>
-<div class="xenkwanki">
-<div>
-<form onsubmit="main(document.getElementById('dat').value); return false;">
-<input type="text" id="dat" value="正書法 熟語変換器" style="font-size: 120%" onkeydown="main(document.getElementById('dat').value)"/>
-<input type="button" value="Xenkwan" style="font-size: 120%" onclick="main(document.getElementById('dat').value)">
-</form>
-</div>
-<div id="res"></div>
-<div id="res2"></div>
-</div>
-<div id="tweet"></div>
-<label onclick="kagsin()"><input type="checkbox" id="temsaku_xuheu" />Twitter上での添削を必要としない</label><br>
-<a href="https://github.com/sozysozbot/Zyukugo-xenkwan-ki">View on Github</a>
+  <h1>熟語変換器 ver 0.0.3</h1>
+  <p>熟語を<a href="https://segsyoxafu.wordpress.com/">Segsyoxafu</a>に変換します。字音は手動で選んでください。</p><hr>
+  <div class="xenkwanki">
+    <div>
+      <form onsubmit="main(document.getElementById('dat').value); return false;">
+      <input type="text" id="dat" value="正書法 熟語変換器" style="font-size: 120%" onkeydown="main(document.getElementById('dat').value)"/>
+      <input type="button" value="Xenkwan" style="font-size: 120%" onclick="main(document.getElementById('dat').value)">
+      </form>
+    </div>
+    <div id="res"></div>
+    <div id="res2"></div>
+  </div>
+  <div id="tweet"></div>
+  <label onclick="kagsin()"><input type="checkbox" id="temsaku_xuheu" />Twitter上での添削を必要としない</label><br>
+  <a href="https://github.com/sozysozbot/Zyukugo-xenkwan-ki">View on Github</a>
 </div>
 </body>
 </html>
