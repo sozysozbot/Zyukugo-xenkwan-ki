@@ -1,20 +1,62 @@
 body {
-  background-color: #fff;
-  font-family: sans-serif;
+  margin: 0px;
+  font-family: 'Hiragino Kaku Gothic Pro', 'ÉqÉâÉMÉmäpÉS Pro W3', Meiryo, ÉÅÉCÉäÉI, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+  overflow: auto;
+  padding: 0px;
+  color: #444;
+  font-size: 16px;
+  line-height: 1.5em;
+  background-color: #eee;
 }
 
 .all {
   background-color: #fff;
-  width: 80%;
-  margin: auto;
-  padding: 30px;
+  width: 70%;
+  margin: 30px auto;
+  padding: 50px 30px;
+  border-radius: 6px;
+  box-shadow:0px 2px 6px 0px #aaa;
 }
 
-h1 { }
+a {
+  color: #444;
+  text-decoration: none;
+  border-bottom: 1px dashed #444;
+}
+a:hover{ color: #999; }
+a:active{ color: #19e; }
 
-hr { border:none; border-bottom: 1px solid #ccc; }
+h1 { font-size: 2.5em; text-align: center;}
 
-.xenkwanki { margin: 30px; }
+hr {
+  border:none;
+  border-bottom: 1px solid #ccc;
+  margin: 20px;
+}
+
+.xenkwanki {
+  margin: 30px;
+  font-size: 1.2em;
+}
+
+#dat {
+  font-size: 1.2em;
+  border-radius: 5px;
+  padding: 2px 6px;
+  border: 2px solid #ccc;
+}
+
+#xenkwan {
+  color: #fff;
+  background-color: #aaa;
+  border: none;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+#xenkwan:hover {
+  background-color: #7ce
+}
 
 .box{ float:left; padding: 3px; width:70px; }
 
@@ -22,19 +64,31 @@ hr { border:none; border-bottom: 1px solid #ccc; }
 .outer:before,.outer:after { content: ""; display: table; }
 .outer:after { clear: both; }
 
-.kanzi { text-align: center; font-size:150%; }
-.kanzi rt { height: 18px; }
-.kanzi rb { font-family: serif; }
+.kanzi { text-align: center; margin-bottom:10px; }
+.kanzi rt {
+  font-size: 0.8em;
+  height: 22px;
+}
+.kanzi rb {
+  font-size: 2.5em;
+  font-family:"ÉqÉâÉMÉmñæí© ProN W6", "HiraMinProN-W6", "HGñæí©E", "ÇlÇr Çoñæí©", "MS PMincho", "MS ñæí©", serif;
+  font-weight: bold;
+}
 
 .zihomlist { width:70px; text-align: center; }
 .zihom { display:block; }
 
 .zihom .radio { display: none; }
-.zihomtext {  }
-.zihom .radio + .zihomtext { color: #aaa; }
-.zihom .radio:checked + .zihomtext { color: #19e; }
+.zihomtext { font-size: 0.9em; }
+.zihom .radio + .zihomtext { color: #999; }
+.zihom .radio:checked + .zihomtext {
+  color: #fff; 
+  padding: 0px 5px;
+  background-color: #7ce;
+  border-radius: 3px;
+}
 
 #res {}
-#res2 { margin-top:20px;  font-size: 120%; }
+#res2 { margin-top:20px; }
 
 #tweet { height: 30px;}
