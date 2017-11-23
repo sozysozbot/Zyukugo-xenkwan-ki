@@ -87,12 +87,27 @@ hr {
 .zihomlist { width:70px; text-align: center; }
 .zihom { display:block; }
 
-.zihom .radio { display: none; }
+.radio { display: none; }
 .zihomtext { font-size: 0.9em; }
-.zihom .radio + .zihomtext { color: #999; }
-.zihom .radio:checked + .zihomtext {
-  color: #fff; 
+.radio + .zihomtext { 
   padding: 0px 7px;
+  color: #999;
+}
+.radio:checked + .zihomtext {
+  color: #fff; 
+  background-color: #7ce;
+  border-radius: 8px;
+}
+
+#temsaku_xuheu { display:none; }
+#temsaku_xuheu + span {
+  color: #fff; 
+  background-color: #ccc;
+  border-radius: 8px;
+  padding: 0px 7px;
+}
+#temsaku_xuheu:checked + span {
+  color: #fff; 
   background-color: #7ce;
   border-radius: 8px;
 }

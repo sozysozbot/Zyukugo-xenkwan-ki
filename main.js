@@ -103,7 +103,7 @@ function kagsin()
 		removeShareButton();
 		createShareButton(str
 		+ "#segsyoxafu " 
-		+ ($("temsaku_xuheu").checked ? "" : "#temsaku") 
+		+ ($("temsaku_xuheu").checked ? "#temsaku" : "") 
 		+ "\n");
 		$("res2").innerHTML = str.replace("\n", "<br>");
 	} else {
