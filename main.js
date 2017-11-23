@@ -6,15 +6,15 @@ var GLOBAL_INFO = {};
 function $(id) { return document.getElementById(id); }
 
 function ready() {
-	$("form").onsubmit=(function(){main($('dat').value); return false;});
-	$("dat").onkeyup = (function(){main($('dat').value);});
-	$("xenkwan").onclick = (function(){main($('dat').value);});
-	main($('dat').value);
+	$("form").onsubmit=(function(){main(); return false;});
+	$("dat").onkeyup = (function(){main();});
+	$("xenkwan").onclick = (function(){main();});
+	main();
 }
 
-function main(text)
+function main()
 {
-	var arr = textToArr(text);
+	var arr = textToArr($("dat").value);
 
 	$("res").innerHTML = "";
 	GLOBAL_INFO = {};
