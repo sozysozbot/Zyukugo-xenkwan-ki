@@ -5,7 +5,8 @@ var GLOBAL_INFO = {};
 
 function $(id) { return document.getElementById(id); }
 
-function ready() {
+function ready()
+{
 	$("form").onsubmit=(function(){main(); return false;});
 	$("dat").onkeyup = (function(){main();});
 	$("xenkwan").onclick = (function(){main();});
@@ -19,9 +20,9 @@ function main()
 	$("res").innerHTML = "";
 	GLOBAL_INFO = {};
 
-	for(var i=0; i<arr.length; i++) {
+	for(var i=0; i<arr.length; i++)
 		$("res").innerHTML += xenkwanki_segseg(i,arr[i]);
-	}
+	
 	GLOBAL_INFO.box_length = arr.length;
 	GLOBAL_INFO.orig_strs = arr;
 	
@@ -33,11 +34,10 @@ function main()
 function search(kanzi)
 {
 	var a = [];
-	for(var i=0; i<zihom.length; i++) {
-		if(zihom[i][1].indexOf(kanzi)+1) {
+	for(var i=0; i<zihom.length; i++)
+		if(zihom[i][1].indexOf(kanzi)+1)
 			a.push(zihom[i][0]);
-		}
-	}
+	
 	return a;
 }
 
@@ -60,9 +60,8 @@ function xenkwanki_segseg(num,hanzis)
 				res += '<label class="zihom"><input type="radio" name="radio_' + index + '" class="radio" value="' + info[0] + '" checked><span class="zihomtext">' + info[0] + '</span></label>';
 				GLOBAL_INFO["box_" + index] = info[0];
 			} else if(info.length > 1) {
-				for(var j=0; j<info.length; j++){
+				for(var j=0; j<info.length; j++)
 					res += '<label class="zihom"><input type="radio" name="radio_' + index + '" class="radio" value="' + info[j] + '" onclick="ev(\'box_' + index + '\', \'' + info[j] + '\')"><span class="zihomtext">' + info[j] + '</span></label>';
-				}
 			} else {
 				res += '(´・ω・`)<br>'
 			}
@@ -81,9 +80,9 @@ function textToArr(text)
 	var kanzi = /([\u4E00-\u9FFF\uF900-\uFAFF])+/g;
 	var arr = [];
 	var tmp;
-	while ((tmp = kanzi.exec(text)) !== null) {
-	  arr.push(tmp[0]);
-	}
+	while ((tmp = kanzi.exec(text)) !== null)
+		arr.push(tmp[0]);
+	
 	return arr;
 }
 
@@ -115,9 +114,7 @@ function createShareButton(text){
 	twttr.widgets.createShareButton(
 	'https://sozysozbot.github.io/Zyukugo-xenkwan-ki/index.html',
 	$('tweet'),
-	{
-		text: text
-	});
+	{ text: text });
 }
 
 function removeShareButton(){$('tweet').innerHTML=""}
