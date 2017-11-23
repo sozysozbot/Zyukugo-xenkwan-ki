@@ -43,8 +43,8 @@ hr {
 
 #dat {
   font-size: 1.2em;
-  border-radius: 5px;
-  padding: 2px 6px;
+  border-radius: 10px;
+  padding: 3px 10px;
   border: 2px solid #ccc;
 }
 
@@ -85,9 +85,9 @@ hr {
 .zihom .radio + .zihomtext { color: #999; }
 .zihom .radio:checked + .zihomtext {
   color: #fff; 
-  padding: 0px 5px;
+  padding: 0px 7px;
   background-color: #7ce;
-  border-radius: 3px;
+  border-radius: 8px;
 }
 
 #res {}
