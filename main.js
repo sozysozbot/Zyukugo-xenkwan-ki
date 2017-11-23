@@ -106,6 +106,7 @@ function kagsin()
 		$("res2").innerHTML = str.replace("\n", "<br>");
 	} else {
 		removeShareButton();
+		$("res2").innerHTML = "";
 	}
 }
 
