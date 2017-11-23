@@ -8,8 +8,9 @@ function $(id) { return document.getElementById(id); }
 function ready()
 {
 	$("form").onsubmit=(function(){main(); return false;});
-	$("dat").onkeyup = (function(){main();});
-	$("xenkwan").onclick = (function(){main();});
+	$("dat").onkeyup = main;
+	$("xenkwan").onclick = main;
+	$("temsaku_xuheu").onclick = kagsin;
 	main();
 }
 
@@ -99,6 +100,7 @@ function kagsin()
 {
 	var str = generate_str();
 	if(str){
+		removeShareButton();
 		createShareButton(str
 		+ "#segsyoxafu " 
 		+ ($("temsaku_xuheu").checked ? "" : "#temsaku") 
