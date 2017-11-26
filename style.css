@@ -1,6 +1,6 @@
-body {
+ï»¿body {
   margin: 0px;
-  font-family: 'Hiragino Kaku Gothic Pro', 'ƒqƒ‰ƒMƒmŠpƒS Pro W3', Meiryo, ƒƒCƒŠƒI, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+  font-family: 'Hiragino Kaku Gothic Pro', 'ãƒ’ãƒ©ã‚®ãƒè§’ã‚´ Pro W3', Meiryo, ãƒ¡ã‚¤ãƒªã‚ª, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
   overflow: auto;
   padding: 0px;
   color: #444;
@@ -67,7 +67,7 @@ hr {
 
 #res { }
 
-.box{ float:left; padding: 3px; width:70px; }
+.box{ float:left; padding: 3px; width:70px; text-align: center;}
 
 .outer {
   overflow: hidden;
@@ -87,11 +87,11 @@ hr {
 }
 .kanzi rb {
   font-size: 2.5em;
-  font-family:"ƒqƒ‰ƒMƒm–¾’© ProN W6", "HiraMinProN-W6", "HG–¾’©E", "‚l‚r ‚o–¾’©", "MS PMincho", "MS –¾’©", serif;
+  font-family:"ãƒ’ãƒ©ã‚®ãƒæ˜æœ ProN W6", "HiraMinProN-W6", "HGæ˜æœE", "ï¼­ï¼³ ï¼°æ˜æœ", "MS PMincho", "MS æ˜æœ", serif;
   font-weight: bold;
 }
 
-.zihomlist { width:70px; text-align: center; }
+.zihomlist { width: 70px; }
 .zihom { display:block; }
 
 .radio { display: none; }
@@ -104,6 +104,25 @@ hr {
   color: #fff; 
   background-color: #7ce;
   border-radius: 8px;
+}
+
+.rendaku_container {
+  margin-top: 5px;
+  width: 70px;
+  border: 1px solid #7ce;
+  border-radius: 6px;
+}
+
+.rendaku_check { display: none; }
+.rendaku_check + span:before {
+	display: inline-block;
+	width:100%;
+	font-size: 0.8em;
+	content:"é€£æ¿";
+}
+.rendaku_check:checked + span:before {
+	border-top: 1px solid #7ce;
+	content:"éš ã™";
 }
 
 #temsaku_xuheu { display:none; }

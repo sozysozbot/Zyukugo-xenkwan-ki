@@ -53,8 +53,11 @@ function xenkwanki_segseg(num,hanzis)
 			var index = num + '_' + i;
 			var info = search(k);
 			
-			//二文字目以降ならば連濁、hについて整形
-			if (i!=0) info = ProcessRendaku(ProcessH(info));
+			//二文字目以降ならばhについて整形
+			if (i!=0) info = processH(info);
+			//連濁のみの配列を取得
+			var rendakuInfo = [];
+			if(i!=0) rendakuInfo = getRendaku(info);
 			
 			if(info.length == 1)
 				res += '<div class="kanzi"><ruby><rb>' + k + '</rb><rt id="box_' + index + '">' + zihom_to_gendaikana(info[0]) + '</rt></ruby>'  +'</div>';
@@ -71,7 +74,15 @@ function xenkwanki_segseg(num,hanzis)
 				res += '(´・ω・`)<br>'
 			}
 			res += '</div>';
-		res += '</div>'
+			
+			
+			if(0 < rendakuInfo.length) {
+				res += '<div class="rendaku_container"><div class="rendaku_zihomlist" id="rendaku_' + index + '" style="display: none;">';
+				for(var j=0; j<rendakuInfo.length; j++)
+					res += '<label class="zihom"><input type="radio" name="radio_' + index + '" class="radio" value="' + rendakuInfo[j] + '" onclick="ev(\'box_' + index + '\', \'' + rendakuInfo[j] + '\')"><span class="zihomtext">' + rendakuInfo[j] + '</span></label>';
+				res += '</div><label><input type="checkbox" onchange="rendakuOpenClose($(' + "'rendaku_" + index + "'" + '), this.checked)" class="rendaku_check" /><span></span></label></div>';
+			}
+		res += '</div>';
 	}
 	GLOBAL_INFO['box_'+num+'_length'] = hanzis.length;
 	
@@ -79,8 +90,14 @@ function xenkwanki_segseg(num,hanzis)
 	return res;
 }
 
+function rendakuOpenClose(div, flag)
+{
+	if(flag) div.style.display = "block";
+	else div.style.display = "none";
+}
+
 //hを挿入
-function ProcessH(info)
+function processH(info)
 {
 	for(var i=0; i<info.length; i++) {
 		info[i] = info[i]
@@ -93,9 +110,10 @@ function ProcessH(info)
 	return info;
 }
 
-//連濁させたものを追加
-function ProcessRendaku(info)
+//連濁させたもののみの配列を作成
+function getRendaku(info)
 {
+	var a = [];
 	for(var i=0; i<info.length; i++) {
 		//最初の子音を濁らせた文字列を用意
 		var s = info[i]
@@ -107,10 +125,10 @@ function ProcessRendaku(info)
 		//同じものが既になければ追加する
 		for(var j=0; j<info.length; j++) {
 			if(s == info[j]) break;
-			if(j == info.length - 1) { info.push(s); break; }
+			if(j == info.length - 1) { a.push(s); break; }
 		}
 	}
-	return info;
+	return a;
 }
 
 // "正書法 熟語変換器" -> ["正書法","熟語変換器"]
