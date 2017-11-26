@@ -102,7 +102,8 @@ function ProcessRendaku(info)
 			.replace(/^k/, "g")
 			.replace(/^s/, "z")
 			.replace(/^t/, "d")
-			.replace(/^x/, "b");
+			.replace(/^x/, "b")
+			.replace(/^x/, "p");
 		//同じものが既になければ追加する
 		for(var j=0; j<info.length; j++) {
 			if(s == info[j]) break;
