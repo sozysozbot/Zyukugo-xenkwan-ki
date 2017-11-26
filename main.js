@@ -37,7 +37,8 @@ function search(kanzi)
 	var a = [];
 	for(var i=0; i<zihom.length; i++)
 		if(zihom[i][1].indexOf(kanzi)+1)
-			a.push(zihom[i][0]);
+			if(zihom[i][0].charAt(0)!="h")	//暫定的にh始まりの字音を弾く
+				a.push(zihom[i][0]);
 	
 	return a;
 }
