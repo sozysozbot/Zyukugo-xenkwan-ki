@@ -110,7 +110,11 @@ hr {
   margin-top: 5px;
   width: 70px;
   border: 1px solid #7ce;
-  border-radius: 6px;
+  border-radius: 10px;
+}
+
+.rendaku_zihomlist {
+  padding: 4px 0;
 }
 
 .rendaku_check { display: none; }
@@ -125,14 +129,14 @@ hr {
 	content:"隠す";
 }
 
-#temsaku_xuheu { display:none; }
-#temsaku_xuheu + span {
+#temsaku { display:none; }
+#temsaku + span {
   color: #fff; 
   background-color: #ccc;
   border-radius: 8px;
   padding: 0px 7px;
 }
-#temsaku_xuheu:checked + span {
+#temsaku:checked + span {
   color: #fff; 
   background-color: #7ce;
   border-radius: 8px;

@@ -10,7 +10,7 @@ function ready()
 	$("form").onsubmit=(function(){main(); return false;});
 	$("dat").onkeyup = main;
 	$("xenkwan").onclick = main;
-	$("temsaku_xuheu").onclick = kagsin;
+	$("temsaku").onclick = kagsin;
 	main();
 }
 
@@ -159,7 +159,7 @@ function kagsin()
 		removeShareButton();
 		createShareButton(str
 		+ "#segsyoxafu " 
-		+ ($("temsaku_xuheu").checked ? "#temsaku" : "") 
+		+ ($("temsaku").checked ? "#temsaku" : "") 
 		+ "\n");
 		$("res2").innerHTML = str.replace("\n", "<br>");
 	} else {
