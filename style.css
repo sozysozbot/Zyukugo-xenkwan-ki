@@ -1,0 +1,124 @@
+body {
+  margin: 0px;
+  font-family: 'Hiragino Kaku Gothic Pro', 'ÉqÉâÉMÉmäpÉS Pro W3', Meiryo, ÉÅÉCÉäÉI, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+  overflow: auto;
+  padding: 0px;
+  color: #444;
+  font-size: 16px;
+  line-height: 1.5em;
+  background-color: #eee;
+}
+
+.all {
+  background-color: #fff;
+  width: 70%;
+  margin: 30px auto;
+  padding: 50px 30px;
+  border-radius: 6px;
+  box-shadow:0px 2px 6px 0px #aaa;
+}
+
+a {
+  color: #444;
+  text-decoration: none;
+  border-bottom: 1px dashed #444;
+}
+a:hover{
+  color: #19e;
+  border-bottom: 1px dashed #19e;
+}
+
+h1 { font-size: 2.5em; text-align: center;}
+
+hr {
+  border:none;
+  border-bottom: 1px solid #ccc;
+  margin: 20px;
+}
+
+.xenkwanki {
+  margin: 30px;
+  font-size: 1.2em;
+}
+
+#dat {
+  font-size: 1.2em;
+  border-radius: 15px;
+  padding: 3px 10px;
+  border: 2px solid #ccc;
+  outline: none;
+}
+#dat:focus{
+  border: 2px solid #7ce;
+  box-shadow: 0px 1px 2px 0px #7ce;
+}
+
+#xenkwan {
+  color: #fff;
+  background-color: #aaa;
+  border: none;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+#xenkwan:hover {
+  background-color: #7ce
+}
+
+#res { }
+
+.box{ float:left; padding: 3px; width:70px; }
+
+.outer {
+  overflow: hidden;
+  padding:10px;
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.outer:before,.outer:after { content: ""; display: table; }
+.outer:after { clear: both; }
+
+.kanzi { text-align: center; margin-bottom:10px; }
+.kanzi rt {
+  font-size: 0.8em;
+  height: 22px;
+}
+.kanzi rb {
+  font-size: 2.5em;
+  font-family:"ÉqÉâÉMÉmñæí© ProN W6", "HiraMinProN-W6", "HGñæí©E", "ÇlÇr Çoñæí©", "MS PMincho", "MS ñæí©", serif;
+  font-weight: bold;
+}
+
+.zihomlist { width:70px; text-align: center; }
+.zihom { display:block; }
+
+.radio { display: none; }
+.zihomtext { font-size: 0.9em; }
+.radio + .zihomtext { 
+  padding: 0px 7px;
+  color: #999;
+}
+.radio:checked + .zihomtext {
+  color: #fff; 
+  background-color: #7ce;
+  border-radius: 8px;
+}
+
+#temsaku_xuheu { display:none; }
+#temsaku_xuheu + span {
+  color: #fff; 
+  background-color: #ccc;
+  border-radius: 8px;
+  padding: 0px 7px;
+}
+#temsaku_xuheu:checked + span {
+  color: #fff; 
+  background-color: #7ce;
+  border-radius: 8px;
+}
+
+#res2 { margin-top:20px; }
+
+#tweet { height: 30px;}
