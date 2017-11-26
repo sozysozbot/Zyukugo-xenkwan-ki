@@ -37,7 +37,8 @@ function search(kanzi)
 	var a = [];
 	for(var i=0; i<zihom.length; i++)
 		if(zihom[i][1].indexOf(kanzi)+1)
-			a.push(zihom[i][0]);
+			if(zihom[i][0].charAt(0)!="h")	//暫定的にh始まりの字音を弾く
+				a.push(zihom[i][0]);
 	
 	return a;
 }
@@ -51,6 +52,9 @@ function xenkwanki_segseg(num,hanzis)
 		res += '<div class="box">';
 			var index = num + '_' + i;
 			var info = search(k);
+			
+			//二文字目以降ならば連濁、hについて整形
+			if (i!=0) info = ProcessRendaku(ProcessH(info));
 			
 			if(info.length == 1)
 				res += '<div class="kanzi"><ruby><rb>' + k + '</rb><rt id="box_' + index + '">' + zihom_to_gendaikana(info[0]) + '</rt></ruby>'  +'</div>';
@@ -73,6 +77,39 @@ function xenkwanki_segseg(num,hanzis)
 	
 	res += '</div>';
 	return res;
+}
+
+//hを挿入
+function ProcessH(info)
+{
+	for(var i=0; i<info.length; i++) {
+		info[i] = info[i]
+			.replace(/^a/, "ha")
+			.replace(/^e/, "he")
+			.replace(/^i/, "hi")
+			.replace(/^o/, "ho")
+			.replace(/^u/, "hu");
+	}
+	return info;
+}
+
+//連濁させたものを追加
+function ProcessRendaku(info)
+{
+	for(var i=0; i<info.length; i++) {
+		//最初の子音を濁らせた文字列を用意
+		var s = info[i]
+			.replace(/^k/, "g")
+			.replace(/^s/, "z")
+			.replace(/^t/, "d")
+			.replace(/^x/, "b");
+		//同じものが既になければ追加する
+		for(var j=0; j<info.length; j++) {
+			if(s == info[j]) break;
+			if(j == info.length - 1) { info.push(s); break; }
+		}
+	}
+	return info;
 }
 
 // "正書法 熟語変換器" -> ["正書法","熟語変換器"]
