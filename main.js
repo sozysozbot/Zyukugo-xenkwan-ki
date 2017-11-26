@@ -65,7 +65,7 @@ function xenkwanki_segseg(num,hanzis)
 			res += '<div class="zihomlist">';
 			
 			if(info.length == 1) {
-				res += '<label class="zihom"><input type="radio" name="radio_' + index + '" class="radio" value="' + info[0] + '" checked><span class="zihomtext">' + info[0] + '</span></label>';
+				res += '<label class="zihom"><input type="radio" name="radio_' + index + '" class="radio" value="' + info[0] + '" onclick="ev(\'box_' + index + '\', \'' + info[0] + '\')" checked><span class="zihomtext">' + info[0] + '</span></label>';
 				GLOBAL_INFO["box_" + index] = info[0];
 			} else if(info.length > 1) {
 				for(var j=0; j<info.length; j++)
