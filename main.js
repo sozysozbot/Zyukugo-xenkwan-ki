@@ -59,8 +59,8 @@ function xenkwanki_segseg(num,hanzis)
 			if(i!=0) rendakuInfo = getRendaku(info);
 			
 			if(info.length == 1)
-				res += '<div class="kanzi"><ruby><rb>' + k + '</rb><rt id="box_' + index + '">' + zihom_to_gendaikana(info[0]) + '</rt></ruby>'  +'</div>';
-			else res += '<div class="kanzi"><ruby><rb>' + k + '</rb><rt id="box_' + index + '"></rt></ruby>'  +'</div>';
+				res += '<div class="ruby" id="box_' + index + '">' + zihom_to_gendaikana(info[0]) + '</div><div class="kanzi">' + k + '</div>';
+			else res += '<div class="ruby" id="box_' + index + '"></div><div class="kanzi">' + k + '</div>';
 			res += '<div class="zihomlist">';
 			
 			if(info.length == 1) {

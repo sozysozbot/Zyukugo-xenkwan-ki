@@ -67,7 +67,6 @@ hr {
 
 #res { }
 
-.box{ float:left; padding: 3px; width:70px; text-align: center;}
 
 .outer {
   overflow: hidden;
@@ -80,15 +79,31 @@ hr {
 .outer:before,.outer:after { content: ""; display: table; }
 .outer:after { clear: both; }
 
-.kanzi { text-align: center; margin-bottom:10px; }
-.kanzi rt {
-  font-size: 0.8em;
-  height: 22px;
+.box {
+  float:left; padding: 3px; width:70px; text-align: center; 
+  position: relative;
 }
-.kanzi rb {
+
+.kanzi {
+  height: 40px;
+  width: 100%;
+  margin: 30px 0 10px 0;
+
+  text-align: center;
   font-size: 2.5em;
   font-family:"ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif;
   font-weight: bold;
+}
+.ruby {
+  height: 20px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: normal;
 }
 
 .zihomlist { width: 70px; }
