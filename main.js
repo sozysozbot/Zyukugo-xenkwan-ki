@@ -64,7 +64,7 @@ function xenkwanki_segseg(num,hanzis)
 				for(var j=0; j<info.length; j++)
 					res += '<label class="zihom"><input type="radio" name="radio_' + index + '" class="radio" value="' + info[j] + '" onclick="ev(\'box_' + index + '\', \'' + info[j] + '\')"><span class="zihomtext">' + info[j] + '</span></label>';
 			} else {
-				res += '(´・ω・`)<br>'
+				res += '<span style="white-space: nowrap; font-size: 80%">(´・ω・`)</span><br>'
 			}
 			res += '</div>';
 		res += '</div>'
