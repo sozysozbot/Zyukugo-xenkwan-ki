@@ -1,6 +1,6 @@
-body {
+ï»¿body {
   margin: 0px;
-  font-family: 'Hiragino Kaku Gothic Pro', 'ƒqƒ‰ƒMƒmŠpƒS Pro W3', Meiryo, ƒƒCƒŠƒI, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+  font-family: 'Hiragino Kaku Gothic Pro', 'ãƒ’ãƒ©ã‚®ãƒè§’ã‚´ Pro W3', Meiryo, ãƒ¡ã‚¤ãƒªã‚ª, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
   overflow: auto;
   padding: 0px;
   color: #444;
@@ -67,7 +67,6 @@ hr {
 
 #res { }
 
-.box{ float:left; padding: 3px; width:70px; }
 
 .outer {
   overflow: hidden;
@@ -80,18 +79,34 @@ hr {
 .outer:before,.outer:after { content: ""; display: table; }
 .outer:after { clear: both; }
 
-.kanzi { text-align: center; margin-bottom:10px; }
-.kanzi rt {
-  font-size: 0.8em;
-  height: 22px;
-}
-.kanzi rb {
-  font-size: 2.5em;
-  font-family:"ƒqƒ‰ƒMƒm–¾’© ProN W6", "HiraMinProN-W6", "HG–¾’©E", "‚l‚r ‚o–¾’©", "MS PMincho", "MS –¾’©", serif;
-  font-weight: bold;
+.box {
+  float:left; padding: 3px; width:70px; text-align: center; 
+  position: relative;
 }
 
-.zihomlist { width:70px; text-align: center; }
+.kanzi {
+  height: 40px;
+  width: 100%;
+  margin: 30px 0 10px 0;
+
+  text-align: center;
+  font-size: 2.5em;
+  font-family:"ãƒ’ãƒ©ã‚®ãƒæ˜æœ ProN W6", "HiraMinProN-W6", "HGæ˜æœE", "ï¼­ï¼³ ï¼°æ˜æœ", "MS PMincho", "MS æ˜æœ", serif;
+  font-weight: bold;
+}
+.ruby {
+  height: 20px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+.zihomlist { width: 70px; }
 .zihom { display:block; }
 
 .radio { display: none; }
@@ -106,14 +121,37 @@ hr {
   border-radius: 8px;
 }
 
-#temsaku_xuheu { display:none; }
-#temsaku_xuheu + span {
+.rendaku_container {
+  margin-top: 5px;
+  width: 70px;
+  border: 1px solid #7ce;
+  border-radius: 10px;
+}
+
+.rendaku_zihomlist {
+  padding: 4px 0;
+}
+
+.rendaku_check { display: none; }
+.rendaku_check + span:before {
+	display: inline-block;
+	width:100%;
+	font-size: 0.8em;
+	content:"é€£æ¿";
+}
+.rendaku_check:checked + span:before {
+	border-top: 1px solid #7ce;
+	content:"éš ã™";
+}
+
+#temsaku { display:none; }
+#temsaku + span {
   color: #fff; 
   background-color: #ccc;
   border-radius: 8px;
   padding: 0px 7px;
 }
-#temsaku_xuheu:checked + span {
+#temsaku:checked + span {
   color: #fff; 
   background-color: #7ce;
   border-radius: 8px;

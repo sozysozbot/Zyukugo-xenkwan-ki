@@ -10,7 +10,7 @@ function ready()
 	$("form").onsubmit=(function(){main(); return false;});
 	$("dat").onkeyup = main;
 	$("xenkwan").onclick = main;
-	$("temsaku_xuheu").onclick = kagsin;
+	$("temsaku").onclick = kagsin;
 	main();
 }
 
@@ -52,13 +52,19 @@ function xenkwanki_segseg(num,hanzis)
 			var index = num + '_' + i;
 			var info = search(k);
 			
+			//二文字目以降ならばhについて整形
+			if (i!=0) info = processH(info);
+			//連濁のみの配列を取得
+			var rendakuInfo = [];
+			if(i!=0) rendakuInfo = getRendaku(info);
+			
 			if(info.length == 1)
-				res += '<div class="kanzi"><ruby><rb>' + k + '</rb><rt id="box_' + index + '">' + zihom_to_gendaikana(info[0]) + '</rt></ruby>'  +'</div>';
-			else res += '<div class="kanzi"><ruby><rb>' + k + '</rb><rt id="box_' + index + '"></rt></ruby>'  +'</div>';
+				res += '<div class="ruby" id="box_' + index + '">' + zihom_to_gendaikana(info[0]) + '</div><div class="kanzi">' + k + '</div>';
+			else res += '<div class="ruby" id="box_' + index + '"></div><div class="kanzi">' + k + '</div>';
 			res += '<div class="zihomlist">';
 			
 			if(info.length == 1) {
-				res += '<label class="zihom"><input type="radio" name="radio_' + index + '" class="radio" value="' + info[0] + '" checked><span class="zihomtext">' + info[0] + '</span></label>';
+				res += '<label class="zihom"><input type="radio" name="radio_' + index + '" class="radio" value="' + info[0] + '" onclick="ev(\'box_' + index + '\', \'' + info[0] + '\')" checked><span class="zihomtext">' + info[0] + '</span></label>';
 				GLOBAL_INFO["box_" + index] = info[0];
 			} else if(info.length > 1) {
 				for(var j=0; j<info.length; j++)
@@ -67,12 +73,61 @@ function xenkwanki_segseg(num,hanzis)
 				res += '<span style="white-space: nowrap; font-size: 80%">(´・ω・`)</span><br>'
 			}
 			res += '</div>';
-		res += '</div>'
+			
+			
+			if(0 < rendakuInfo.length) {
+				res += '<div class="rendaku_container"><div class="rendaku_zihomlist" id="rendaku_' + index + '" style="display: none;">';
+				for(var j=0; j<rendakuInfo.length; j++)
+					res += '<label class="zihom"><input type="radio" name="radio_' + index + '" class="radio" value="' + rendakuInfo[j] + '" onclick="ev(\'box_' + index + '\', \'' + rendakuInfo[j] + '\')"><span class="zihomtext">' + rendakuInfo[j] + '</span></label>';
+				res += '</div><label><input type="checkbox" onchange="rendakuOpenClose($(' + "'rendaku_" + index + "'" + '), this.checked)" class="rendaku_check" /><span></span></label></div>';
+			}
+		res += '</div>';
 	}
 	GLOBAL_INFO['box_'+num+'_length'] = hanzis.length;
 	
 	res += '</div>';
 	return res;
+}
+
+function rendakuOpenClose(div, flag)
+{
+	if(flag) div.style.display = "block";
+	else div.style.display = "none";
+}
+
+//hを挿入
+function processH(info)
+{
+	for(var i=0; i<info.length; i++) {
+		info[i] = info[i]
+			.replace(/^a/, "ha")
+			.replace(/^e/, "he")
+			.replace(/^i/, "hi")
+			.replace(/^o/, "ho")
+			.replace(/^u/, "hu");
+	}
+	return info;
+}
+
+//連濁させたもののみの配列を作成
+function getRendaku(info)
+{
+	var a = [];
+	for(var i=0; i<info.length; i++) {
+		//最初の子音を濁らせた文字列を用意
+		var s = info[i]
+			.replace(/^k/, "g")
+			.replace(/^s/, "z")
+			.replace(/^t/, "d")
+			.replace(/^x/, "b")
+			.replace(/^x/, "p");
+		//同じものが既になければ追加する
+		for(var j=0; j<info.length; j++) {
+			if(s == info[j]) break;
+			if(j == info.length - 1) { a.push(s); break; }
+		}
+	}
+	return a;
 }
 
 // "正書法 熟語変換器" -> ["正書法","熟語変換器"]
@@ -103,7 +158,7 @@ function kagsin()
 		removeShareButton();
 		createShareButton(str
 		+ "#segsyoxafu " 
-		+ ($("temsaku_xuheu").checked ? "#temsaku" : "") 
+		+ ($("temsaku").checked ? "#temsaku" : "") 
 		+ "\n");
 		$("res2").innerHTML = str.replace(/\n/g, "<br>");
 	} else {
