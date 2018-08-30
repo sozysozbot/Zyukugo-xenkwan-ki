@@ -1,6 +1,6 @@
-body {
+ï»¿body {
   margin: 0px;
-  font-family: 'Hiragino Kaku Gothic Pro', 'ƒqƒ‰ƒMƒmŠpƒS Pro W3', Meiryo, ƒƒCƒŠƒI, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+  font-family: 'Hiragino Kaku Gothic Pro', 'ãƒ’ãƒ©ã‚®ãƒè§’ã‚´ Pro W3', Meiryo, ãƒ¡ã‚¤ãƒªã‚ª, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
   overflow: auto;
   padding: 0px;
   color: #444;
@@ -36,11 +36,6 @@ hr {
   margin: 20px;
 }
 
-.xenkwanki {
-  margin: 30px;
-  font-size: 1.2em;
-}
-
 #dat {
   font-size: 1.2em;
   border-radius: 15px;
@@ -65,9 +60,7 @@ hr {
   background-color: #7ce
 }
 
-#res { }
-
-.box{ float:left; padding: 3px; width:70px; }
+.box{ float:left; padding:3px; width:70px; }
 
 .outer {
   overflow: hidden;
@@ -87,7 +80,7 @@ hr {
 }
 .kanzi rb {
   font-size: 2.5em;
-  font-family:"ƒqƒ‰ƒMƒm–¾’© ProN W6", "HiraMinProN-W6", "HG–¾’©E", "‚l‚r ‚o–¾’©", "MS PMincho", "MS –¾’©", serif;
+  font-family:"ãƒ’ãƒ©ã‚®ãƒæ˜æœ ProN W6", "HiraMinProN-W6", "HGæ˜æœE", "ï¼­ï¼³ ï¼°æ˜æœ", "MS PMincho", "MS æ˜æœ", serif;
   font-weight: bold;
 }
 
@@ -106,19 +99,38 @@ hr {
   border-radius: 8px;
 }
 
-#temsaku_xuheu { display:none; }
-#temsaku_xuheu + span {
-  color: #fff; 
+.checkbox { display:none; }
+.checkbox_wrapper{
+  position:relative;
+  line-height: 1em;
+}
+.checkbox + span {
+  display: inline-block;
+  width:48px;
+  height:24px;
+  vertical-align: middle;
+  border-radius: 12px;
+  position:relative;
   background-color: #ccc;
-  border-radius: 8px;
-  padding: 0px 7px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.2) inset;
+  transition: all 0.3s ease;
 }
-#temsaku_xuheu:checked + span {
-  color: #fff; 
+.checkbox:checked + span {
   background-color: #7ce;
-  border-radius: 8px;
 }
-
-#res2 { margin-top:20px; }
-
-#tweet { height: 30px;}
+.checkbox + span::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 28px;
+  top: 4px;
+  width:16px;
+  height:16px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+.checkbox:checked + span::before {
+  left: 4px;
+}
