@@ -36,11 +36,6 @@ hr {
   margin: 20px;
 }
 
-.xenkwanki {
-  margin: 30px;
-  font-size: 1.2em;
-}
-
 #dat {
   font-size: 1.2em;
   border-radius: 15px;
@@ -65,9 +60,7 @@ hr {
   background-color: #7ce
 }
 
-#res { }
-
-.box{ float:left; padding: 3px; width:70px; }
+.box{ float:left; padding:3px; width:70px; }
 
 .outer {
   overflow: hidden;
@@ -141,7 +134,3 @@ hr {
 .checkbox:checked + span::before {
   left: 4px;
 }
-
-#res2 { margin-top:20px; }
-
-#tweet { height: 30px;}
